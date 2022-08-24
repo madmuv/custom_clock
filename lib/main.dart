@@ -1,6 +1,8 @@
+import 'package:custom_clock/ui/style.dart';
 import 'package:custom_clock/utils/time_model.dart';
 import 'package:custom_clock/widgets/clock_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:timer_builder/timer_builder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,9 +38,27 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
-              ClockWidget(
-                TimeModel(1, 0, 0),
-              ),
+              TimerBuilder.periodic(const Duration(seconds: 1),
+                  builder: (context) {
+                    var currentTime = DateTime.now();
+
+                    // set the digital clock string values
+                    String seconds = currentTime.second < 10 ? "0${currentTime.second}":"${currentTime.second}";
+                    String minutes = currentTime.minute < 10 ? "0${currentTime.minute}":"${currentTime.minute}";
+                    String hours = currentTime.hour < 10 ? "0${currentTime.hour}":"${currentTime.hour}";
+
+                    return Column(
+                      children: [
+                        Center(
+                          child: Text("$hours:$minutes:$seconds", style: AppStyle.mainText,)
+                        ),
+                        Center(
+                          child: ClockWidget(TimeModel(currentTime.hour,
+                              currentTime.minute, currentTime.second)),
+                        ),
+                      ],
+                    );
+                  })
             ],
           ),
         ),
