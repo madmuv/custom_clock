@@ -37,12 +37,10 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               ClockWidget(
-                TimeModel(
-                  12, 38, 10
-                ),
+                TimeModel(1, 0, 0),
               ),
             ],
-        ),
+          ),
         ),
       ),
     );

@@ -35,9 +35,9 @@ class ClockPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     // calculate time position
-    double secRad = ((pi / 2) - (pi / 30)) * time!.sec! % (2 * pi);
-    double minRad = ((pi / 2) - (pi / 30)) * time!.min! % (2 * pi);
-    double hourRad = ((pi / 2) - (pi / 9)) * time!.hour! % (2 * pi);
+    double secRad = ((pi / 2) - (pi / 30) * time!.sec!) % (2 * pi);
+    double minRad = ((pi / 2) - (pi / 30) * time!.min!) % (2 * pi);
+    double hourRad = ((pi / 2) - (pi / 6) * time!.hour!) % (2 * pi);
 
     var centerX = size.width / 2;
     var centerY = size.height / 2;
