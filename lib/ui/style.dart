@@ -12,10 +12,16 @@ class AppStyle {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle mainTextWhite = const TextStyle(
+    color: Colors.white,
+    fontSize: 32.0,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle mainTextThin = const TextStyle(
     color: Colors.black87,
     fontSize: 32.0,
-    fontWeight: FontWeight.w200,
+    fontWeight: FontWeight.w300,
   );
 
   static TextStyle mainTextThinWhite = const TextStyle(
